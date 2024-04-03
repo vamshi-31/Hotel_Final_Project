@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form method="POST">
+            <label>Availability Rooms</label>
+    <select name="rid">
+        {% for i in data %}
+        <option>{{i[0]}}</option>
+        {% endfor %}
+    </select><br>
+    <label>customer Name</label>
+    <input type="text" name="customername"/><br>
+    <label>phonenumber</label>
+    <input type="number" name="phno"/><br>
+    <button>submit</button>
+    </form>
+</body>
+</html>
