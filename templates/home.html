@@ -4,34 +4,67 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Personal Record</title>
+    <title>Hotel Management</title>
     <style>
         * {
-            font-family:Arial, Helvetica, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             font-weight: bold;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         body {
-            background-color: royalblue;
+            background-image: url("https://c4.wallpaperflare.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-cityscape-hd-wallpaper-preview.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .overlay {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white overlay */
+            height: 100vh; /* Full height of viewport */
+            display: flex;
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+        }
+        .container {
+            max-width: 1200px;
+            padding: 20px;
+            text-align: center;
+        }
+        h1 {
+            color: #333; /* Darker gray text */
+            margin-bottom: 30px;
+        }
+        .btn-container {
+            margin-top: 50px;
         }
         .btnstyle {
-            background-color:yellow;
-            color:black;
-            padding:20px;
+            background-color: #ffd700; /* Gold color */
+            color: #000; /* Black text */
+            padding: 20px 40px; /* Vertical padding 20px, horizontal padding 40px */
             border-radius: 8px;
-            border:none;
+            border: none;
             font-size: 25px;
             margin: 10px;
             cursor: pointer;
+            text-decoration: none; /* Remove underline from links */
+            transition: background-color 0.3s; /* Smooth transition on hover */
+        }
+        .btnstyle:hover {
+            background-color: #ffc107; /* Darker gold color on hover */
         }
     </style>    
 </head>
 <body>
-    <center>
-    <h1 style="color:white;">hotel management</h1></center>
-    <!--You have to give the links to the specific pages where the notes and 
-        file pages need to go-->
-    <a href="{{url_for('rooms')}}"><button class="btnstyle">Rooms Avaliablity</button></a>
-    <a href="{{url_for('booking')}}"><button class="btnstyle">allot rooms</button></a>
-    <a href="{{url_for('logout')}}"><button class="btnstyle" style="margin-left:65%;">Logout</button></a>
+    <div class="overlay">
+        <div class="container">
+            <h1><span style="color: #333;">Hotel</span> Management</h1>
+            <div class="btn-container">
+                <a href="{{url_for('rooms')}}" class="btnstyle">Rooms Availability</a>
+                <a href="{{url_for('booking')}}" class="btnstyle">Allot Rooms</a>
+                <a href="{{url_for('logout')}}" class="btnstyle">Logout</a>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
