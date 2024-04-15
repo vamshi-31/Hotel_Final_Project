@@ -6,24 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #body{
-        background-image: https://c4.wallpaperflare.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-cityscape-hd-wallpaper-preview.jpg;
+        body {
+            background-image: url("https://c4.wallpaperflare.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-cityscape-hd-wallpaper-preview.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
         }
-   </style>
+        form {
+            background-color: rgba(255, 255, 255, 0.8); /* Add opacity to the form */
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto; /* Center the form */
+            width: 50%; /* Adjust width as needed */
+        }
+        label, input, select {
+            display: block;
+            margin-bottom: 10px;
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 <body>
     <form method="POST">
-            <label>Availability Rooms</label>
-    <select name="rid">
-        {% for i in data %}
-        <option>{{i[0]}}</option>
-        {% endfor %}
-    </select><br>
-    <label>customer Name</label>
-    <input type="text" name="customername"/><br>
-    <label>phonenumber</label>
-    <input type="number" name="phno"/><br>
-    <button>submit</button>
+        <label>Availability Rooms</label>
+        <select name="rid">
+            {% for i in data %}
+            <option>{{i[0]}}</option>
+            {% endfor %}
+        </select><br>
+        <label>customer Name</label>
+        <input type="text" name="customername"/><br>
+        <label>phonenumber</label>
+        <input type="number" name="phno"/><br>
+        <button>submit</button>
     </form>
 </body>
 </html>
