@@ -4,6 +4,86 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Management</title>
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-image: url("https://c4.wallpaperflare.com/wallpaper/985/136/886/building-lights-illustration-romain-trystram-cityscape-hd-wallpaper-preview.jpg");
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            max-width: 600px;
+            padding: 40px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            text-align: center;
+        }
+        h1 {
+            color: #1c1c1c;
+            margin-bottom: 30px;
+        }
+        .btn-container {
+            margin-top: 30px;
+        }
+        .btnstyle {
+            background-color: #87ceeb;
+            color: #000;
+            padding: 15px 30px;
+            border-radius: 8px;
+            border: none;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .btnstyle:hover {
+            background-color: #6495ed;
+        }
+        .message {
+            margin-top: 20px;
+            color: #1c1c1c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hotel Management</h1>
+        <div class="btn-container">
+            <a href="{{url_for('register')}}" class="btnstyle">Register</a>
+            <a href="{{url_for('login')}}" class="btnstyle">Login</a>
+        </div>
+        <div class="message">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        <center><b>{{ message }}</b></center>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
         * {
