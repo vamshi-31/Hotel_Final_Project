@@ -4,90 +4,80 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
-    
     <script src="https://kit.fontawesome.com/00b1661ff0.js" crossorigin="anonymous"></script>
-    <title>log in</title>
+    <style>
+        body {
+            background-image: url('https://source.unsplash.com/random/1920x1080'); /* Background image */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Ensure background image stays fixed */
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+        .card {
+            background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent background for card */
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .form-label {
+            color: #fff; /* Label color */
+        }
+        .form-control {
+            border-color: #ccc; /* Input field border color */
+        }
+        .btn-login {
+            background-color: #007bff; /* Button background color */
+            border-color: #007bff; /* Button border color */
+            color: #fff; /* Button text color */
+            font-weight: bold;
+        }
+        .btn-login:hover {
+            background-color: #0056b3; /* Darker color on hover */
+            border-color: #0056b3;
+        }
+        .text-lighter {
+            color: rgba(255, 255, 255, 0.8); /* Slightly lighter text color */
+        }
+    </style>
 </head>
-<style>
-  .gradient-custom {
-/* fallback for old browsers */
-/* background: #6a11cb; */
-
-/* Chrome 10-25, Safari 5.1-6 */
-/* background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)); */
-
-/* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-/* background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1)); */
-
-background-image: url('');
-background-size: cover;
-    height:150vh;
-  
-    margin-bottom: none;
-    
-/* background-size: cover;
-height:100vh; */
-
-}
-  </style>
-
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    {% for message in messages %}
-      <center><b>{{ message }}</b></center>
-    {% endfor %}
-  {% endif %}
-{% endwith %}
 <body>
 
-              <form method="POST">
-                <section class="vh-90 gradient-custom">
-                  <div class="container py-5 h-100">
-                    <div class="row d-flex justify-content-center align-items-center h-100">
-                      <div class="col-12 col-md-8 col-lg-6 col-xl-5">
-                        <div class="card bg-dark text-white" style="border-radius: 1rem;">
-                          <div class="card-body p-5 text-center">
-                
-                            <div class="mb-md-5 mt-md-4 pb-5">
-                
-                              <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
-                              <p class="text-white-50 mb-5">Please enter your login and password!</p>
-                
-                              <div class="form-outline form-white mb-4">
-                                <input type="text" id="typeEmailX" class="form-control form-control-lg" name="username" placeholder="username" />
-                                <label class="form-label" for="typeEmailX">Username</label>
-                              </div>
-                
-                              <div class="form-outline form-white mb-4">
-                                <input type="password" id="typePasswordX" class="form-control form-control-lg" name="password" placeholder="Password"/>
-                                <label class="form-label" for="typePasswordX">Password</label>
-                              </div>
-                
-                              <!-- <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#">Forgot password?</a></p> -->
-                
-                              <button class="btn btn-outline-light btn-lg px-5" type="submit">Login</button>
-                
-                
+<form method="POST">
+    <section class="vh-100 d-flex align-items-center justify-content-center">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-md-6 col-lg-5 col-xl-4">
+                    <div class="card p-5">
+                        <div class="card-body">
+                            <h2 class="text-center text-white mb-4">Login</h2>
+                            <div class="form-outline mb-4">
+                                <input type="text" id="username" class="form-control form-control-lg" name="username" placeholder="Username">
+                                <label class="form-label" for="username">Username</label>
                             </div>
-                
-                           
-                              <p class="mb-0" style="margin-top:50px;">Don't have an account? <a href="{{url_for('register')}}" class="text-white-50 fw-bold">Sign Up</a>
-                              </p>
-                              <p class="mb-0" style="margin-top:50px;">Forget password<a href="{{url_for('aforgot')}}" class="text-white-50 fw-bold">Sign Up</a>
-                              </p>
-                
-                          </div>
+                            <div class="form-outline mb-4">
+                                <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder="Password">
+                                <label class="form-label" for="password">Password</label>
+                            </div>
+                            <button class="btn btn-block btn-lg btn-login" type="submit">Login</button>
+                            <p class="text-center mt-3 mb-0">
+                                <span class="text-lighter">Don't have an account? <a href="{{url_for('register')}}" class="text-white fw-bold">Sign Up</a></span>
+                            </p>
+                            <p class="text-center mb-0">
+                                <span class="text-lighter">Forgot password? <a href="{{url_for('aforgot')}}" class="text-white fw-bold">Reset here</a></span>
+                            </p>
                         </div>
-                      </div>
                     </div>
-                  </div>
-                </section>
-                </form>
-                <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-              <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-              
-              </body>
-              </html>
+                </div>
+            </div>
+        </div>
+    </section>
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
 </body>
 </html>
